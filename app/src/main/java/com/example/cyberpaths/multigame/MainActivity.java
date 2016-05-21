@@ -3,6 +3,7 @@ package com.example.cyberpaths.multigame;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
     }
-    public void newGame()
-    {
-        Intent newIntent = new Intent(this,newGame.class);
-    }
 
+    public void newGame(View view) {
+        Intent newIntent = new Intent(this,newGame.class);
+        startActivity(newIntent);
+    }
 }
