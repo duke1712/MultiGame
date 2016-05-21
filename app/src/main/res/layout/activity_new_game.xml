@@ -57,16 +57,19 @@
             android:background="@drawable/round"
             />
 
-
         <Button
             android:id="@+id/two"
             android:layout_width="115dp"
             android:layout_height="100dp"
             android:layout_toRightOf="@id/one"
             android:text="-"
-            android:textSize="50sp" />
+                        android:background="@drawable/round"
+
+        android:textSize="50sp" />
 
         <Button
+            android:background="@drawable/round"
+
             android:id="@+id/three"
             android:layout_width="115dp"
             android:layout_height="100dp"
@@ -74,6 +77,11 @@
             android:text="-"
 
             android:textSize="50sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_alignBottom="@id/three" />
 
         <Button
             android:id="@+id/four"
@@ -81,6 +89,7 @@
             android:layout_height="100dp"
             android:layout_alignEnd="@+id/seven"
             android:layout_alignRight="@+id/seven"
+            android:background="@drawable/round"
             android:layout_below="@+id/one"
             android:text="-"
             android:textSize="50sp" />
@@ -88,6 +97,7 @@
         <Button
             android:id="@+id/five"
             android:layout_width="115dp"
+            android:background="@drawable/round"
             android:layout_height="100dp"
             android:layout_below="@+id/two"
             android:layout_toEndOf="@+id/four"
@@ -100,15 +110,22 @@
             android:layout_width="115dp"
             android:layout_height="100dp"
             android:layout_below="@+id/three"
+            android:background="@drawable/round"
             android:layout_toEndOf="@+id/two"
             android:layout_toRightOf="@+id/two"
             android:text="-"
             android:textSize="50sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_alignBottom="@id/six" />
 
         <Button
             android:id="@+id/seven"
             android:layout_width="115dp"
             android:layout_height="100dp"
+            android:background="@drawable/round"
             android:layout_alignTop="@+id/eight"
             android:layout_toLeftOf="@+id/eight"
             android:layout_toStartOf="@+id/eight"
@@ -118,6 +135,7 @@
         <Button
             android:id="@+id/eight"
             android:layout_width="115dp"
+            android:background="@drawable/round"
             android:layout_height="100dp"
             android:layout_below="@+id/five"
             android:layout_toLeftOf="@+id/six"
@@ -128,12 +146,14 @@
         <Button
             android:id="@+id/nine"
             android:layout_width="115dp"
+            android:background="@drawable/round"
             android:layout_height="100dp"
             android:layout_below="@+id/six"
             android:layout_toEndOf="@+id/five"
             android:layout_toRightOf="@+id/five"
             android:text="-"
             android:textSize="50sp" />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -145,5 +165,6 @@
             android:text="All The Best" />
 
     </RelativeLayout>
+
 </RelativeLayout>
 
