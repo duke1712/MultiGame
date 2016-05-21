@@ -1,10 +1,13 @@
 package com.example.cyberpaths.multigame;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class newGame extends AppCompatActivity {
     int turn=0;
@@ -18,15 +21,18 @@ public class newGame extends AppCompatActivity {
      Button seven;
      Button eight;
      Button nine;
+    TextView player1;
+    TextView player2;
     TextView message;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
 
-
+        message = (TextView)findViewById(R.id.message);
         initialise();
-
+        player1=(TextView)findViewById(R.id.player1score);
+        player2=(TextView)findViewById(R.id.player2score);
         one = (Button) findViewById(R.id.one);
         two = (Button) findViewById(R.id.two);
         three = (Button) findViewById(R.id.three);
@@ -36,7 +42,6 @@ public class newGame extends AppCompatActivity {
         seven = (Button) findViewById(R.id.seven);
         eight = (Button) findViewById(R.id.eight);
         nine = (Button) findViewById(R.id.nine);
-        message=(TextView)findViewById(R.id.message);
         one.setText("-");
         two.setText("-");
         three.setText("-");
@@ -46,16 +51,18 @@ public class newGame extends AppCompatActivity {
         seven.setText("-");
         eight.setText("-");
         nine.setText("-");
-        one.setEnabled(true);
-        two.setEnabled(true);
-        three.setEnabled(true);
-        four.setEnabled(true);
-        five.setEnabled(true);
-        six.setEnabled(true);
-        seven.setEnabled(true);
-        eight.setEnabled(true);
-        nine.setEnabled(true);
+//        one.setEnabled(true);
+//        two.setEnabled(true);
+//        three.setEnabled(true);
+//        four.setEnabled(true);
+//        five.setEnabled(true);
+//        six.setEnabled(true);
+//        seven.setEnabled(true);
+//        eight.setEnabled(true);
+//        nine.setEnabled(true);
         turn=0;
+        player1.setText(constants.p1 + "");
+        player2.setText(constants.p2 + "");
 
 
 
@@ -70,16 +77,16 @@ public class newGame extends AppCompatActivity {
                     one.setText("X");
                     cells[0][0] = 1;
                     valid(turn);
-                    //message.setText("Player 2's Turn");
+                    message.setText("Player 2's Turn");
                 } else {
                     one.setText("O");
                     cells[0][0] = 2;
                     valid(turn);
-                    //  message.setText("Player 1's Turn");
+                      message.setText("Player 1's Turn");
                 }
                 turn++;
                 if(turn==9)
-                    message.setText("DRAW!!!!!");
+                    result(0);
                 one.setEnabled(false);
             }
         });
@@ -100,7 +107,7 @@ public class newGame extends AppCompatActivity {
                 }
                 turn++;
                 if(turn==9)
-                    message.setText("DRAW!!!!!");
+                    result(0);
                 two.setEnabled(false);
             }
         });
@@ -121,7 +128,7 @@ public class newGame extends AppCompatActivity {
                 }
                 turn++;
                 if(turn==9)
-                    message.setText("DRAW!!!!!");
+                    result(0);
                 three.setEnabled(false);
             }
         });
@@ -142,7 +149,7 @@ public class newGame extends AppCompatActivity {
                 }
                 turn++;
                 if(turn==9)
-                    message.setText("DRAW!!!!!");
+                    result(0);
                 four.setEnabled(false);
 
             }
@@ -164,7 +171,7 @@ public class newGame extends AppCompatActivity {
                 }
                 turn++;
                 if(turn==9)
-                    message.setText("DRAW!!!!!");
+                    result(0);
                 five.setEnabled(false);
 
             }
@@ -184,7 +191,7 @@ public class newGame extends AppCompatActivity {
                 }
                 turn++;
                 if(turn==9)
-                    message.setText("DRAW!!!!!");
+                    result(0);
                 six.setEnabled(false);
 
             }
@@ -205,7 +212,7 @@ public class newGame extends AppCompatActivity {
                 seven.setEnabled(false);
                 turn++;
                 if(turn==9)
-                    message.setText("DRAW!!!!!");
+                    result(0);
             }
         });
         eight.setOnClickListener(new View.OnClickListener() {
@@ -223,7 +230,7 @@ public class newGame extends AppCompatActivity {
                 }
                 turn++;
                 if(turn==9)
-                    message.setText("DRAW!!!!!");
+                    result(0);
                 eight.setEnabled(false);
             }
         });
@@ -242,7 +249,7 @@ public class newGame extends AppCompatActivity {
                 }
                 turn++;
                 if(turn==9)
-                    message.setText("DRAW!!!!!");
+                    result(0);
                 nine.setEnabled(false);
             }
         });
@@ -252,13 +259,11 @@ public class newGame extends AppCompatActivity {
     public void valid(int t)
     {
         int x=validate();
-        final TextView message = (TextView)findViewById(R.id.message);
 
         if(x==1)
         {
             //  final TextView message = (TextView)findViewById(R.id.message);
-            message.setText("Player 1 Wins.\n" +
-                    " Click New Game");
+            result(1);
             one = (Button) findViewById(R.id.one);
             two = (Button) findViewById(R.id.two);
             three = (Button) findViewById(R.id.three);
@@ -282,7 +287,7 @@ public class newGame extends AppCompatActivity {
         else if(x==2)
         {
             //  final TextView message = (TextView)findViewById(R.id.message);
-            message.setText("Player 2 Wins\n Click New Game");
+            result(2);
             one = (Button) findViewById(R.id.one);
             two = (Button) findViewById(R.id.two);
             three = (Button) findViewById(R.id.three);
@@ -361,6 +366,12 @@ public class newGame extends AppCompatActivity {
         return 0;
 
 
+    }
+    void result(int result)
+    {
+        Intent resultIntent = new Intent(this,Result.class);
+        resultIntent.putExtra("result",result);
+        startActivity(resultIntent);
     }
     public void initialise()
     {

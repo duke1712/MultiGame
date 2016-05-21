@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:text="@string/_0"
+        android:text="0"
         android:id="@+id/player1score"
         android:textSize="50sp" />
 
@@ -17,17 +17,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/player1score"
-        android:text="@string/player_1"
+        android:text="Player 1"
         android:id="@+id/player1"
         android:textSize="30sp"
         android:layout_marginLeft="10dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/player_2"
+        android:text="Player 2"
         android:id="@+id/player2"
         android:layout_toLeftOf="@+id/player2score"
-
         android:textSize="30sp"
         android:layout_marginRight="10dp" />
 
@@ -35,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:id="@+id/player2score"
-        android:text="@string/player2score"
+        android:text="0"
         android:layout_alignParentRight="true"
         android:textSize="50sp" />
 
@@ -54,7 +53,9 @@
             android:layout_width="115dp"
             android:layout_height="100dp"
             android:text="-"
-            android:textSize="50sp"/>
+            android:textSize="50sp"
+            android:background="@drawable/round"
+            />
 
 
         <Button
@@ -138,10 +139,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
             android:id="@+id/message"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:text="All The Best" />
 
     </RelativeLayout>
 </RelativeLayout>
