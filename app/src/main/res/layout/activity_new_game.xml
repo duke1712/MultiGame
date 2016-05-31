@@ -3,15 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_vertical_margin"
     tools:context="com.example.cyberpaths.multigame.newGame"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="#6976da">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:text="0"
         android:id="@+id/player1score"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +21,8 @@
         android:text="Player 1"
         android:id="@+id/player1"
         android:textSize="30sp"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textColor="#ffffff" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +30,8 @@
         android:id="@+id/player2"
         android:layout_toLeftOf="@+id/player2score"
         android:textSize="30sp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,135 +39,183 @@
         android:id="@+id/player2score"
         android:text="0"
         android:layout_alignParentRight="true"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        android:textColor="#ffffff" />
 
 
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
+    <LinearLayout
+
+        android:id="@+id/Linear"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/player1score">
+        android:orientation="vertical"
+        android:showDividers="middle|beginning|end"
+        android:padding="1dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+        <LinearLayout
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:showDividers="middle|beginning">
+
 
         <Button
             android:id="@+id/one"
-            android:layout_width="115dp"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:text="-"
             android:textSize="50sp"
             android:background="@drawable/round"
-            />
-
+            android:maxWidth="100dp"
+            android:maxHeight="100dp"
+            android:height="100dp"
+            android:textColor="#ffffff" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray"
+                android:padding="0dp" />
         <Button
             android:id="@+id/two"
-            android:layout_width="115dp"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_toRightOf="@id/one"
             android:text="-"
-                        android:background="@drawable/round"
+            android:background="@drawable/round"
 
-        android:textSize="50sp" />
-
+            android:textSize="50sp"
+            android:textColor="#ffffff" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray" />
         <Button
             android:background="@drawable/round"
 
             android:id="@+id/three"
-            android:layout_width="115dp"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_toRightOf="@id/two"
             android:text="-"
 
-            android:textSize="50sp" />
+            android:textSize="50sp"
+            android:textColor="#ffffff" />
+        </LinearLayout>
         <View
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"
-            android:layout_alignBottom="@id/three" />
-
+            android:layout_alignBottom="@id/three"
+            android:layout_column="1"
+            android:layout_row="0" />
+    <LinearLayout
+        android:layout_width="305dp"
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/four"
-            android:layout_width="115dp"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignEnd="@+id/seven"
             android:layout_alignRight="@+id/seven"
             android:background="@drawable/round"
             android:layout_below="@+id/one"
             android:text="-"
-            android:textSize="50sp" />
-
+            android:textSize="50sp"
+            android:textColor="#ffffff" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
         <Button
             android:id="@+id/five"
-            android:layout_width="115dp"
+            android:layout_width="100dp"
             android:background="@drawable/round"
             android:layout_height="100dp"
             android:layout_below="@+id/two"
             android:layout_toEndOf="@+id/four"
             android:layout_toRightOf="@+id/four"
             android:text="-"
-            android:textSize="50sp" />
-
+            android:textSize="50sp"
+            android:textColor="#ffffff" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
         <Button
             android:id="@+id/six"
-            android:layout_width="115dp"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@+id/three"
             android:background="@drawable/round"
             android:layout_toEndOf="@+id/two"
             android:layout_toRightOf="@+id/two"
             android:text="-"
-            android:textSize="50sp" />
+            android:textSize="50sp"
+            android:textColor="#ffffff" />
+    </LinearLayout>
         <View
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"
             android:layout_alignBottom="@id/six" />
-
+    <LinearLayout
+        android:layout_width="305dp"
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/seven"
-            android:layout_width="115dp"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/round"
             android:layout_alignTop="@+id/eight"
             android:layout_toLeftOf="@+id/eight"
             android:layout_toStartOf="@+id/eight"
             android:text="-"
-            android:textSize="50sp" />
-
+            android:textSize="50sp"
+            android:textColor="#ffffff" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
         <Button
             android:id="@+id/eight"
-            android:layout_width="115dp"
+            android:layout_width="100dp"
             android:background="@drawable/round"
             android:layout_height="100dp"
             android:layout_below="@+id/five"
             android:layout_toLeftOf="@+id/six"
             android:layout_toStartOf="@+id/six"
             android:text="-"
-            android:textSize="50sp" />
-
+            android:textSize="50sp"
+            android:textColor="#ffffff" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
         <Button
             android:id="@+id/nine"
-            android:layout_width="115dp"
+            android:layout_width="100dp"
             android:background="@drawable/round"
             android:layout_height="100dp"
             android:layout_below="@+id/six"
             android:layout_toEndOf="@+id/five"
             android:layout_toRightOf="@+id/five"
             android:text="-"
-            android:textSize="50sp" />
+            android:textSize="50sp"
+            android:textColor="#ffffff" />
+    </LinearLayout>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/message"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="All The Best" />
 
-    </RelativeLayout>
-
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/message"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="All The Best"
+        android:textColor="#ffffff" />
 </RelativeLayout>
 

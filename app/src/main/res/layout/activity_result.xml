@@ -7,13 +7,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.cyberpaths.multigame.Result">
+    tools:context="com.example.cyberpaths.multigame.Result"
+    android:background="#6976da">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:text="0"
         android:id="@+id/player1score"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,7 +24,8 @@
         android:text="PLayer 1"
         android:id="@+id/player1"
         android:textSize="30sp"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textColor="#ffffff" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +34,8 @@
         android:layout_toLeftOf="@+id/player2score"
 
         android:textSize="30sp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,7 +43,8 @@
         android:id="@+id/player2score"
         android:text="0"
         android:layout_alignParentRight="true"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,23 +57,27 @@
         android:layout_marginTop="38dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="New Game"
         android:id="@+id/newgame"
         android:onClick="newGame1"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:background="@drawable/round"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="94dp"
+        android:textColor="#ffffff" />
 
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Play Again"
         android:id="@+id/play"
-        android:layout_below="@+id/newgame"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="68dp"
-        android:onClick="play" />
+        android:onClick="play"
+        android:background="@drawable/round"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
