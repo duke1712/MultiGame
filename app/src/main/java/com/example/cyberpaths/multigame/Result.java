@@ -8,14 +8,24 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class Result extends AppCompatActivity {
     TextView resultView;
     TextView player1;
     TextView player2;
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        mAdView.loadAd(adRequest);
+
         Intent resultIntent = getIntent();
         int result=resultIntent.getIntExtra("result",0);
         resultView=(TextView)findViewById(R.id.result1);
@@ -41,7 +51,29 @@ public class Result extends AppCompatActivity {
 //        getMenuInflater().inflate(R.menu.main_menu,menu);
 //        return true;
 //    }
+@Override
+public void onPause() {
+    if (mAdView != null) {
+        mAdView.pause();
+    }
+    super.onPause();
+}
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
+    }
     boolean doubleBackToExitPressedOnce = false;
 
     @Override
