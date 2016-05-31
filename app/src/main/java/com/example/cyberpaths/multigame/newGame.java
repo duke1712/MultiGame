@@ -41,15 +41,12 @@ private AdView mAdView;
 
         //ads <code>
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                // Check the LogCat to get your test device ID
-                .addTestDevice("2217D213C9103D43B6112EB151986803")
+//                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+//                // Check the LogCat to get your test device ID
+//                .addTestDevice("2217D213C9103D43B6112EB151986803")
                 .build();
 
         mAdView = (AdView) findViewById(R.id.adView);
-//        AdRequest adRequest = new AdRequest.Builder()
-//                .build();
-     //   mAdView.loadAd(new AdRequest.Builder().build());
        mAdView.loadAd(adRequest);
 
 

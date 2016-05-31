@@ -8,42 +8,78 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-//2217D213C9103D43B6112EB151986803
+import com.google.android.gms.ads.InterstitialAd;
+
 public class Result extends AppCompatActivity {
     TextView resultView;
     TextView player1;
     TextView player2;
     private AdView mAdView;
+    InterstitialAd mInterstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
+        mInterstitialAd = new InterstitialAd(this);
 
-//        mAdView = (AdView) findViewById(R.id.adView);
-//        AdRequest adRequest = new AdRequest.Builder()
-//                .build();
-//        mAdView.loadAd(adRequest);
+        // set the ad unit ID
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_full_screen));
+
+        AdRequest adRequest = new AdRequest.Builder()
+//                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+//                // Check the LogCat to get your test device ID
+//                .addTestDevice("2217D213C9103D43B6112EB151986803")
+                .build();
+
+        // Load ads into Interstitial Ads
+        mInterstitialAd.loadAd(adRequest);
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                showInterstitial();
+            }
+        });
+
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest2 = new AdRequest.Builder()
+//                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+//                // Check the LogCat to get your test device ID
+//                .addTestDevice("2217D213C9103D43B6112EB151986803")
+                .build();
+        mAdView.loadAd(adRequest2);
 
         Intent resultIntent = getIntent();
-        int result=resultIntent.getIntExtra("result",0);
-        resultView=(TextView)findViewById(R.id.result1);
-        player1=(TextView)findViewById(R.id.player1score);
-        player2=(TextView)findViewById(R.id.player2score);
+        int result = resultIntent.getIntExtra("result", 0);
+        resultView = (TextView) findViewById(R.id.result1);
+        player1 = (TextView) findViewById(R.id.player1score);
+        player2 = (TextView) findViewById(R.id.player2score);
 
-        if(result==1){
+        if (result == 1) {
             resultView.setText("Player 1 Wins");
-            constants.p1+=1;
-        }
-        else if(result==2) {
+            constants.p1 += 1;
+        } else if (result == 2) {
             resultView.setText("Player 2 Wins");
-            constants.p2+=1;
-        }
-        else
+            constants.p2 += 1;
+        } else
             resultView.setText("DRAW!!!!!!");
         player1.setText(constants.p1 + "");
         player2.setText(constants.p2 + "");
 
+    }
+
+
+    private void showInterstitial() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
     }
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
@@ -78,7 +114,11 @@ public void onPause() {
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
+//            super.onBackPressed();
+            Intent intent = new Intent(Result.this, Result.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("EXIT", true);
+            startActivity(intent);
             return;
         }
 

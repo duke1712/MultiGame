@@ -8,8 +8,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:background="@drawable/tict"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.cyberpaths.multigame.MainActivity"
-    android:onClick="newGame">
+    tools:context="com.example.cyberpaths.multigame.MainActivity">
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:drawable/ic_media_play"
+        android:backgroundTint="#508eff"
+        android:onClick="newGame" />
 </RelativeLayout>

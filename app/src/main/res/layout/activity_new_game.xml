@@ -216,9 +216,8 @@
         android:id="@+id/message"
         android:text="All The Best"
         android:textColor="#ffffff"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="36dp" />
+        android:layout_above="@+id/adView"
+        android:layout_centerHorizontal="true" />
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="match_parent"
