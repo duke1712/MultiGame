@@ -214,16 +214,19 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/message"
+        android:text="All The Best"
+        android:textColor="#ffffff"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="All The Best"
-        android:textColor="#ffffff" />
+        android:layout_marginBottom="36dp" />
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_home_footer">
+        ads:adUnitId="@string/banner_home_footer"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
     </com.google.android.gms.ads.AdView>
 </RelativeLayout>
 
