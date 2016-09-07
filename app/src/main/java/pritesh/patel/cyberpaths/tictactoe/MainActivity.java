@@ -1,4 +1,4 @@
-package com.example.cyberpaths.multigame;
+package pritesh.patel.cyberpaths.tictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;

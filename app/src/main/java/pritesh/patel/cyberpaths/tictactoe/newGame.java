@@ -1,4 +1,4 @@
-package com.example.cyberpaths.multigame;
+package pritesh.patel.cyberpaths.tictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,7 +38,9 @@ private AdView mAdView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
-
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
         //ads <code>
         AdRequest adRequest = new AdRequest.Builder()
 //                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -46,24 +48,24 @@ private AdView mAdView;
 //                .addTestDevice("2217D213C9103D43B6112EB151986803")
                 .build();
 
-        mAdView = (AdView) findViewById(R.id.adView);
+        mAdView = (AdView) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.adView);
        mAdView.loadAd(adRequest);
 
 
 
-        message = (TextView)findViewById(R.id.message);
+        message = (TextView)findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.message);
         initialise();
-        player1=(TextView)findViewById(R.id.player1score);
-        player2=(TextView)findViewById(R.id.player2score);
-        one = (Button) findViewById(R.id.one);
-        two = (Button) findViewById(R.id.two);
-        three = (Button) findViewById(R.id.three);
-        four = (Button) findViewById(R.id.four);
-        five = (Button) findViewById(R.id.five);
-        six = (Button) findViewById(R.id.six);
-        seven = (Button) findViewById(R.id.seven);
-        eight = (Button) findViewById(R.id.eight);
-        nine = (Button) findViewById(R.id.nine);
+        player1=(TextView)findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.player1score);
+        player2=(TextView)findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.player2score);
+        one = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.one);
+        two = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.two);
+        three = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.three);
+        four = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.four);
+        five = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.five);
+        six = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.six);
+        seven = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.seven);
+        eight = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.eight);
+        nine = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.nine);
         one.setText("-");
         two.setText("-");
         three.setText("-");
@@ -310,15 +312,15 @@ private AdView mAdView;
         {
             //  final TextView message = (TextView)findViewById(R.id.message);
             result(1);
-            one = (Button) findViewById(R.id.one);
-            two = (Button) findViewById(R.id.two);
-            three = (Button) findViewById(R.id.three);
-            four = (Button) findViewById(R.id.four);
-            five = (Button) findViewById(R.id.five);
-            six = (Button) findViewById(R.id.six);
-            seven = (Button) findViewById(R.id.seven);
-            eight = (Button) findViewById(R.id.eight);
-            nine = (Button) findViewById(R.id.nine);
+            one = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.one);
+            two = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.two);
+            three = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.three);
+            four = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.four);
+            five = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.five);
+            six = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.six);
+            seven = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.seven);
+            eight = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.eight);
+            nine = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.nine);
             one.setEnabled(false);
             two.setEnabled(false);
             three.setEnabled(false);
@@ -334,15 +336,15 @@ private AdView mAdView;
         {
             //  final TextView message = (TextView)findViewById(R.id.message);
             result(2);
-            one = (Button) findViewById(R.id.one);
-            two = (Button) findViewById(R.id.two);
-            three = (Button) findViewById(R.id.three);
-            four = (Button) findViewById(R.id.four);
-            five = (Button) findViewById(R.id.five);
-            six = (Button) findViewById(R.id.six);
-            seven = (Button) findViewById(R.id.seven);
-            eight = (Button) findViewById(R.id.eight);
-            nine = (Button) findViewById(R.id.nine);
+            one = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.one);
+            two = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.two);
+            three = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.three);
+            four = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.four);
+            five = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.five);
+            six = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.six);
+            seven = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.seven);
+            eight = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.eight);
+            nine = (Button) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.nine);
             one.setEnabled(false);
             two.setEnabled(false);
             three.setEnabled(false);
@@ -418,8 +420,13 @@ private AdView mAdView;
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
+           // super.onBackPressed();
+            Intent intent = new Intent(newGame.this, newGame.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("EXIT", true);
+            startActivity(intent);
             return;
+
         }
 
         this.doubleBackToExitPressedOnce = true;
@@ -439,6 +446,7 @@ private AdView mAdView;
         resultIntent.putExtra("result",result);
         startActivity(resultIntent);
         finish();
+
     }
     public void initialise()
     {

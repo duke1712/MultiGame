@@ -1,4 +1,4 @@
-package com.example.cyberpaths.multigame;
+package pritesh.patel.cyberpaths.multigame;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

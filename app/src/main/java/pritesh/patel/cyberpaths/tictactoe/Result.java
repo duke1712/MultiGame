@@ -1,4 +1,4 @@
-package com.example.cyberpaths.multigame;
+package pritesh.patel.cyberpaths.tictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,47 +8,45 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 
 public class Result extends AppCompatActivity {
     TextView resultView;
     TextView player1;
     TextView player2;
     private AdView mAdView;
-    InterstitialAd mInterstitialAd;
+//    InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
+        setContentView(pritesh.patel.cyberpaths.tictactoe.R.layout.activity_result);
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
         }
-        mInterstitialAd = new InterstitialAd(this);
+//        mInterstitialAd = new InterstitialAd(this);
 
         // set the ad unit ID
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_full_screen));
+//        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_full_screen));
+//
+//        AdRequest adRequest = new AdRequest.Builder()
+////                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+////                // Check the LogCat to get your test device ID
+////                .addTestDevice("2217D213C9103D43B6112EB151986803")
+//                .build();
+//
+//        // Load ads into Interstitial Ads
+//        mInterstitialAd.loadAd(adRequest);
+//
+//        mInterstitialAd.setAdListener(new AdListener() {
+//            public void onAdLoaded() {
+//                showInterstitial();
+//            }
+//        });
 
-        AdRequest adRequest = new AdRequest.Builder()
-//                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-//                // Check the LogCat to get your test device ID
-//                .addTestDevice("2217D213C9103D43B6112EB151986803")
-                .build();
 
-        // Load ads into Interstitial Ads
-        mInterstitialAd.loadAd(adRequest);
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-                showInterstitial();
-            }
-        });
-
-
-        mAdView = (AdView) findViewById(R.id.adView);
+        mAdView = (AdView) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.adView);
         AdRequest adRequest2 = new AdRequest.Builder()
 //                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
 //                // Check the LogCat to get your test device ID
@@ -58,9 +56,9 @@ public class Result extends AppCompatActivity {
 
         Intent resultIntent = getIntent();
         int result = resultIntent.getIntExtra("result", 0);
-        resultView = (TextView) findViewById(R.id.result1);
-        player1 = (TextView) findViewById(R.id.player1score);
-        player2 = (TextView) findViewById(R.id.player2score);
+        resultView = (TextView) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.result1);
+        player1 = (TextView) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.player1score);
+        player2 = (TextView) findViewById(pritesh.patel.cyberpaths.tictactoe.R.id.player2score);
 
         if (result == 1) {
             resultView.setText("Player 1 Wins");
@@ -76,11 +74,11 @@ public class Result extends AppCompatActivity {
     }
 
 
-    private void showInterstitial() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
-    }
+//    private void showInterstitial() {
+//        if (mInterstitialAd.isLoaded()) {
+//            mInterstitialAd.show();
+//        }
+//    }
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        getMenuInflater().inflate(R.menu.main_menu,menu);
@@ -133,16 +131,18 @@ public void onPause() {
             }
         }, 2000);
     }
-    void newGame1(View view)
+    public void newGame1(View view)
     {
         constants.p1=0;
         constants.p2=0;
         Intent newIntent = new Intent(this,newGame.class);
         startActivity(newIntent);
+        finish();
     }
-    void play(View view)
-    {
-            Intent newIntent = new Intent(this,newGame.class);
+
+        public void play(View view) {
+        Intent newIntent = new Intent(this,newGame.class);
         startActivity(newIntent);
+        finish();
     }
 }

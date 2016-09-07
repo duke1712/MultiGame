@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.cyberpaths.multigame.Result"
+    tools:context="pritesh.patel.cyberpaths.tictactoe.Result"
     android:background="#6976da">
     <TextView
         android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Play Again"
-        android:id="@+id/play"
+        android:id="@+id/play1"
         android:onClick="play"
         android:background="@drawable/round"
         android:textColor="#ffffff"

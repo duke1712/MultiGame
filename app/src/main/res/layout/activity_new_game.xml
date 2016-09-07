@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cyberpaths.multigame.newGame"
+    tools:context="pritesh.patel.cyberpaths.tictactoe.newGame"
     android:weightSum="1"
     android:background="#6976da">
     <TextView

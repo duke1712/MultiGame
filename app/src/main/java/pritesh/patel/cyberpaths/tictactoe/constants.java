@@ -1,4 +1,4 @@
-package com.example.cyberpaths.multigame;
+package pritesh.patel.cyberpaths.tictactoe;
 
 /**
  * Created by Pritesh on 5/21/2016.
